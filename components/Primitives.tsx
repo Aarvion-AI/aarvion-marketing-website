@@ -254,7 +254,8 @@ export function Primitives() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 pb-24">
+      {/* ============ DESKTOP: scroll-driven 2-column ============ */}
+      <div className="hidden lg:block mx-auto max-w-6xl px-6 pb-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr]">
           {/* Left: scrolling primitives */}
           <ol className="space-y-[34vh] lg:py-[26vh]">
@@ -317,7 +318,7 @@ export function Primitives() {
           </ol>
 
           {/* Right: sticky artifact panel */}
-          <div className="hidden lg:block">
+          <div>
             <div className="sticky top-24">
               <article
                 key={current.index}
@@ -382,47 +383,82 @@ export function Primitives() {
             </div>
           </div>
 
-          {/* Mobile fallback */}
-          <div className="lg:hidden">
-            <article className="rounded-xl border border-border/80 bg-panel/40 overflow-hidden">
-              <div className="flex items-center justify-between border-b border-border/70 px-5 py-3">
-                <div className="flex items-center gap-2 text-cyan">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-cyan/10">
-                    {current.icon}
-                  </span>
-                  <span className="font-mono text-[10.5px] uppercase tracking-[0.14em]">
-                    Primitive · {current.index}
-                  </span>
-                </div>
-                <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-fg-dim">
-                  {current.index} / 07
+        </div>
+      </div>
+
+      {/* ============ MOBILE: all primitives stacked inline with their artifacts ============ */}
+      <div className="lg:hidden mx-auto max-w-6xl px-4 sm:px-6 pb-16 space-y-5">
+        {PRIMITIVES.map((p) => (
+          <article
+            key={p.index}
+            className="rounded-xl border border-border/80 bg-panel/40 overflow-hidden"
+          >
+            <div className="flex items-center justify-between border-b border-border/60 px-4 sm:px-5 py-3">
+              <div className="flex items-center gap-2 text-cyan">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-cyan/10">
+                  {p.icon}
+                </span>
+                <span className="font-mono text-[10.5px] uppercase tracking-[0.14em]">
+                  Primitive · {p.index}
                 </span>
               </div>
-              <div className="px-6 py-5 border-b border-border/70">
-                <pre className="font-mono text-[11.5px] leading-[1.65] text-fg/90 overflow-x-auto">
-                  {current.manifest.split("\n").map((line, i) => (
-                    <div key={i} className="flex gap-3">
-                      <span className="text-fg-dim/60 select-none w-5 text-right">
-                        {i + 1}
-                      </span>
-                      <span>
-                        <ManifestLine line={line} />
-                      </span>
-                    </div>
-                  ))}
-                </pre>
-              </div>
-              <div className="px-6 py-5">
-                <div className="flex items-start gap-4">
-                  <OutcomeBadge label={current.outcome.label} />
-                  <p className="text-[13.5px] text-fg-muted leading-relaxed flex-1">
-                    {current.outcome.text}
-                  </p>
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-fg-dim">
+                {p.index} / 07
+              </span>
+            </div>
+
+            <div className="px-4 sm:px-5 py-5">
+              <h3 className="text-2xl font-semibold tracking-tight text-fg leading-tight">
+                {p.name}
+              </h3>
+              <p className="mt-1.5 italic text-fg-dim text-sm">{p.oneLine}</p>
+              <p className="mt-3 text-fg-muted leading-relaxed text-[14.5px]">
+                {p.failure}
+              </p>
+
+              <div className="mt-4 rounded-lg border border-red/20 bg-red/[0.04] px-3.5 py-3">
+                <div className="flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-[0.14em] text-red/90">
+                  <AlertTriangle size={11} />
+                  Real failure
                 </div>
+                <p className="mt-2 text-[13.5px] font-medium text-fg">
+                  {p.example.headline}
+                </p>
+                <p className="mt-1 text-[12.5px] text-fg-muted leading-relaxed">
+                  {p.example.detail}
+                </p>
               </div>
-            </article>
-          </div>
-        </div>
+            </div>
+
+            <div className="border-t border-border/60 bg-bg-elev/40 px-4 sm:px-5 py-4">
+              <div className="flex items-center justify-between mb-3 font-mono text-[10px] uppercase tracking-[0.14em] text-fg-dim">
+                <span className="truncate">{p.manifestLabel}</span>
+                <span>yaml</span>
+              </div>
+              <pre className="font-mono text-[11px] leading-[1.65] text-fg/90 overflow-x-auto">
+                {p.manifest.split("\n").map((line, i) => (
+                  <div key={i} className="flex gap-2.5">
+                    <span className="text-fg-dim/60 select-none w-4 text-right">
+                      {i + 1}
+                    </span>
+                    <span>
+                      <ManifestLine line={line} />
+                    </span>
+                  </div>
+                ))}
+              </pre>
+            </div>
+
+            <div className="border-t border-border/60 px-4 sm:px-5 py-4">
+              <div className="flex items-start gap-3">
+                <OutcomeBadge label={p.outcome.label} />
+                <p className="text-[13px] text-fg-muted leading-relaxed flex-1">
+                  {p.outcome.text}
+                </p>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

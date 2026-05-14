@@ -121,7 +121,8 @@ export function TheLoop() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 pb-24">
+      {/* ============ DESKTOP: scroll-driven 2-column ============ */}
+      <div className="hidden lg:block mx-auto max-w-6xl px-6 pb-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr]">
           {/* Left: scrolling phases */}
           <ol className="space-y-[36vh] lg:py-[26vh]">
@@ -178,7 +179,7 @@ export function TheLoop() {
           </ol>
 
           {/* Right: sticky artifact panel */}
-          <div className="hidden lg:block">
+          <div>
             <div className="sticky top-24">
               <article
                 key={current.key}
@@ -216,26 +217,50 @@ export function TheLoop() {
             </div>
           </div>
 
-          {/* Mobile fallback */}
-          <div className="lg:hidden">
-            <article className="rounded-xl border border-border/80 bg-panel/40 overflow-hidden">
-              <div className="flex items-center justify-between border-b border-border/70 px-5 py-3">
-                <div className="flex items-center gap-2 text-cyan">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-cyan/10">
-                    {current.icon}
-                  </span>
-                  <span className="font-mono text-[10.5px] uppercase tracking-[0.14em]">
-                    {current.tag}
-                  </span>
-                </div>
-                <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-fg-dim">
-                  {current.index} / 04
+        </div>
+      </div>
+
+      {/* ============ MOBILE: all phases stacked inline with their artifacts ============ */}
+      <div className="lg:hidden mx-auto max-w-6xl px-4 sm:px-6 pb-16 space-y-5">
+        {PHASES.map((p) => (
+          <article
+            key={p.key}
+            className="rounded-xl border border-border/80 bg-panel/40 overflow-hidden"
+          >
+            <div className="flex items-center justify-between border-b border-border/60 px-4 sm:px-5 py-3">
+              <div className="flex items-center gap-2 text-cyan">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-cyan/10">
+                  {p.icon}
+                </span>
+                <span className="font-mono text-[10.5px] uppercase tracking-[0.14em]">
+                  {p.tag}
                 </span>
               </div>
-              <div className="px-6 py-5">{current.artifact}</div>
-            </article>
-          </div>
-        </div>
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-fg-dim">
+                {p.index} / 04
+              </span>
+            </div>
+            <div className="px-4 sm:px-5 py-5">
+              <h3 className="text-2xl font-semibold tracking-tight text-fg leading-tight">
+                {p.title}
+              </h3>
+              <p className="mt-1.5 italic text-fg-dim text-sm">{p.oneLine}</p>
+              <p className="mt-3 text-fg-muted leading-relaxed text-[14.5px]">
+                {p.body}
+              </p>
+              <div className="mt-4 inline-flex items-center gap-2 text-sm">
+                <span className="text-cyan">→</span>
+                <span className="text-fg/90 font-medium">{p.outcome}</span>
+              </div>
+            </div>
+            <div className="border-t border-border/60 bg-bg-elev/40 px-4 sm:px-5 py-4">
+              {p.artifact}
+            </div>
+          </article>
+        ))}
+        <p className="text-[11px] font-mono uppercase tracking-[0.14em] text-fg-dim text-center pt-2">
+          04 refines back to 01
+        </p>
       </div>
     </section>
   );

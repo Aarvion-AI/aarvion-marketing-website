@@ -98,7 +98,7 @@ function LayerRow({ layer, isLast }: { layer: Layer; isLast: boolean }) {
   const primary = !!layer.primary;
   return (
     <li
-      className={`relative grid grid-cols-[80px_minmax(0,1.05fr)_minmax(0,1.6fr)] items-stretch ${
+      className={`relative grid grid-cols-1 md:grid-cols-[80px_minmax(0,1.05fr)_minmax(0,1.6fr)] items-stretch ${
         isLast ? "" : "border-b border-border/40"
       } ${primary ? "bg-cyan/[0.04]" : ""}`}
     >
@@ -109,8 +109,8 @@ function LayerRow({ layer, isLast }: { layer: Layer; isLast: boolean }) {
         />
       )}
 
-      {/* Index */}
-      <div className="px-6 py-7 flex items-start gap-2 border-r border-border/40">
+      {/* Index — desktop sidebar */}
+      <div className="hidden md:flex px-6 py-7 items-start gap-2 border-r border-border/40">
         <span
           className={`font-mono text-[10.5px] tracking-[0.14em] ${
             primary ? "text-cyan" : "text-fg-dim"
@@ -121,7 +121,14 @@ function LayerRow({ layer, isLast }: { layer: Layer; isLast: boolean }) {
       </div>
 
       {/* Category + representative */}
-      <div className="px-6 py-7 border-r border-border/40">
+      <div className="px-5 sm:px-6 py-6 md:py-7 md:border-r border-border/40">
+        <span
+          className={`md:hidden inline-block mb-3 font-mono text-[10px] tracking-[0.14em] ${
+            primary ? "text-cyan" : "text-fg-dim"
+          }`}
+        >
+          {layer.index}
+        </span>
         <div className="flex items-center gap-2.5">
           <span
             className={`inline-flex h-8 w-8 items-center justify-center rounded-md ${
@@ -157,7 +164,7 @@ function LayerRow({ layer, isLast }: { layer: Layer; isLast: boolean }) {
       </div>
 
       {/* Question + body */}
-      <div className="px-6 py-7">
+      <div className="px-5 sm:px-6 pb-6 md:pt-7 md:pb-7">
         <div className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-fg-dim">
           Answers the question
         </div>
