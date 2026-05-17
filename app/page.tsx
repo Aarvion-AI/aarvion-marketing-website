@@ -1,7 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { Threat } from "@/components/Threat";
 import { TheLoop } from "@/components/TheLoop";
-import { Primitives } from "@/components/Primitives";
 import { Anatomy } from "@/components/Anatomy";
 import { Audiences } from "@/components/Audiences";
 import { Comparison } from "@/components/Comparison";
@@ -15,8 +15,8 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
+        <Threat />
         <TheLoop />
-        <Primitives />
         <Anatomy />
         <Audiences />
         <Comparison />
