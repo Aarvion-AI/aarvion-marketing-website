@@ -40,6 +40,18 @@ export function Threat() {
             <span className="text-cyan">The gateway cannot.</span>
           </p>
         </div>
+
+        {/* Why now */}
+        <div className="mt-12 flex items-center gap-3 border-t border-border/60 pt-6">
+          <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-cyan shrink-0">
+            Why now
+          </span>
+          <p className="text-sm sm:text-[15px] text-fg-muted leading-relaxed">
+            AI agents are entering production faster than enterprises can
+            govern them. The control layer has to exist before the incident —
+            not after.
+          </p>
+        </div>
       </div>
     </section>
   );
