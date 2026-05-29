@@ -39,10 +39,9 @@ export function DesignPartnership() {
               90 days. One stuck initiative. Zero lock-in.
             </h2>
             <p className="mt-4 text-fg-muted leading-relaxed">
-              We&apos;re onboarding a small cohort of regulated enterprises in
-              Q3 2026. You bring the AI initiative your CISO won&apos;t sign
-              off on. We deploy a proxy around it and prove it&apos;s safe to
-              ship.
+              We&apos;re onboarding a small cohort of regulated enterprises. You
+              bring the AI initiative your CISO won&apos;t sign off on. We
+              deploy a proxy around it and prove it&apos;s safe to ship.
             </p>
             <ol className="mt-9 space-y-5">
               {phases.map((p, i) => (

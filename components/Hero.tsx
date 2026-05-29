@@ -13,7 +13,7 @@ export function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-panel/60 px-3 py-1 text-xs text-fg-muted">
               <span className="dot bg-cyan pulse-dot" />
-              Now onboarding design partners — Q3 2026 cohort
+              Now onboarding design partners
             </div>
             <h1 className="mt-7 text-balance text-5xl sm:text-6xl font-semibold tracking-tight leading-[1.05]">
               Govern every AI agent before it touches production.
@@ -46,7 +46,7 @@ export function Hero() {
         </div>
 
         <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs uppercase tracking-wider text-fg-dim">
-          <span>Built for</span>
+          <span>Designed against the controls expected by</span>
           <span className="text-fg-muted">SOC 2 Type II</span>
           <span className="text-fg-muted">ISO 27001</span>
           <span className="text-fg-muted">GDPR</span>
