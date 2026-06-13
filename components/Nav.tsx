@@ -15,16 +15,16 @@ export function Nav() {
           <Logo />
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm text-fg-muted">
-          <a href="#loop" className="hover:text-fg transition-colors">
+          <a href="/#loop" className="hover:text-fg transition-colors">
             The loop
           </a>
-          <a href="#anatomy" className="hover:text-fg transition-colors">
+          <a href="/#anatomy" className="hover:text-fg transition-colors">
             In action
           </a>
-          <a href="#compare" className="hover:text-fg transition-colors">
+          <a href="/#compare" className="hover:text-fg transition-colors">
             Why Aarvion
           </a>
-          <a href="#partnership" className="hover:text-fg transition-colors">
+          <a href="/#partnership" className="hover:text-fg transition-colors">
             Design partnership
           </a>
         </nav>
@@ -48,7 +48,7 @@ export function Nav() {
             <XIcon size={13} />
           </a>
           <a
-            href="#partnership"
+            href="/#partnership"
             className="inline-flex items-center gap-1.5 rounded-md border border-border-strong bg-panel px-3.5 py-1.5 text-sm font-medium text-fg hover:bg-bg-elev hover:border-cyan/40 transition-colors"
           >
             Get early access

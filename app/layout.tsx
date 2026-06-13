@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { JsonLd } from "@/components/JsonLd";
+import { AmplitudeAnalytics } from "@/components/AmplitudeAnalytics";
+import {
+  SITE_URL,
+  SITE_NAME,
+  DEFAULT_DESCRIPTION,
+  PRIMARY_KEYWORDS,
+  organizationJsonLd,
+  websiteJsonLd,
+  softwareApplicationJsonLd,
+} from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,22 +24,45 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.aarvion.ai"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Aarvion — Govern every AI agent before it touches production",
     template: "%s · Aarvion",
   },
-  description:
-    "Aarvion is the runtime proxy between your AI agents and your enterprise systems. Block unsafe actions in <5ms. Hand your regulator a cryptographically signed audit in 90 seconds.",
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: PRIMARY_KEYWORDS,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: "Aarvion — Govern every AI agent before it touches production",
     description:
       "Runtime policy enforcement and cryptographic provenance for enterprise AI agents.",
-    url: "https://www.aarvion.ai",
-    siteName: "Aarvion",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     type: "website",
+    locale: "en_US",
   },
-  twitter: { card: "summary_large_image", title: "Aarvion" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aarvion — Govern every AI agent before it touches production",
+    description:
+      "Runtime policy enforcement and cryptographic provenance for enterprise AI agents.",
+  },
 };
 
 export default function RootLayout({
@@ -39,7 +73,17 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <AmplitudeAnalytics />
+        <JsonLd
+          data={[
+            organizationJsonLd(),
+            websiteJsonLd(),
+            softwareApplicationJsonLd(),
+          ]}
+        />
+        {children}
+      </body>
     </html>
   );
 }
