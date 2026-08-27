@@ -136,8 +136,7 @@ export function RuntimeHome() {
           <div className={styles.heroStage}>
             <div className={styles.heroCopy}>
               <h1>
-                The runtime for
-                <br /> enterprise agents.
+                The runtime for enterprise agents.
                 <br /> From pilot to production.
               </h1>
               <p>
