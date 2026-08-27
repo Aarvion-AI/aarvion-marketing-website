@@ -120,7 +120,7 @@ components:
 
 **Creative North Star: "The Runtime Plane"**
 
-Aarvion is presented as infrastructure made visible: a warm mineral field is interrupted by a slanted indigo plane that physically sits between agent sources and enterprise systems. The world is operational, assured, and dense without becoming militaristic. It borrows the precision of a control room and the tactility of technical equipment, then softens both with paper-toned chapters and unusually direct product language.
+Aarvion is presented as infrastructure made visible: a warm mineral field is interrupted by a slanted indigo plane that carries a workflow from its starting point through the runtime and into approved routes and enterprise systems. The world is operational, assured, and dense without becoming militaristic. It borrows the precision of a control room and the tactility of technical equipment, then softens both with paper-toned chapters and unusually direct product language.
 
 The direction contract is stable: the runtime plane is the ownable visual signature; product evidence appears in the first viewport; light explanation chapters alternate with near-black operating chapters; interfaces are rendered as credible working surfaces, not glossy dashboard screenshots. Cadre enters as a source flowing into the same runtime, never as a competing brand world.
 
@@ -191,19 +191,19 @@ The palette moves between warm mineral neutrals and a deep indigo operating laye
 
 ## Layout
 
-The desktop system uses one fluid content frame capped at 1360px, with gutters that scale from 1.15rem on mobile to 5.5rem on wide screens. Navigation, hero copy, sources, both on-ramps, runtime evidence, and every chapter use the same frame. Major sections use 3.2–5.25rem vertical padding. The hero remains deliberately layered rather than becoming a conventional two-column block: copy sits left, source nodes stack right, both ways to start bridge the seam, and the full-width runtime plane rises from the bottom.
+The desktop system uses one fluid content frame capped at 1360px, with gutters that scale from 1.15rem on mobile to 5.5rem on wide screens. Navigation, hero copy, both on-ramps, runtime evidence, and every chapter use the same frame. Major sections use 3.2–5.25rem vertical padding. The hero remains deliberately layered rather than becoming a conventional two-column block: copy sits left, both ways to start bridge the seam into the full-width runtime plane, the Aarvion Runtime dominates the plane, and approved models, agents, and tools resolve immediately to its right.
 
 ### Story Structure
 
 1. Compact navigation with one dominant **Book a demo** action.
-2. First-viewport promise plus source map, Cadre input, runtime decision, enterprise systems, and shared PASS/PARK/BLOCK provenance.
+2. First-viewport promise plus both ways to start, the runtime decision, approved routes, enterprise systems, and shared PASS/PARK/BLOCK provenance.
 3. The invariant action path: Route → Policy → Authority → Review → Act.
 4. A single sticky focus cue crossfades from Route to Policy to Deploy to Operate while the active swimlane reaches full clarity and the other chapter surfaces remain softly veiled; the primary site navigation remains the only full-width sticky bar.
 5. Interactive evidence chapters for routing, policy, deployment, and runtime operations.
 6. The two on-ramps—existing agents and Cadre—resolving into one runtime.
 7. A single-workflow conversion close and restrained footer.
 
-The hero uses one normal-flow grid at every desktop width; there is no alternate absolute layout above 1200px. At 900px, desktop navigation becomes a menu and chapter grids stack, while dense canvases preserve two-column substructure where space allows. At 760px, the source field and both on-ramps recompose into a single-column scene, the sticky focus cue disappears, and each chapter keeps its own static label. At 640px, gutters become 1.15rem, chapter padding becomes 3.2rem, most canvases stack to one column, tap targets stay at least 44px, and secondary interface detail may collapse only when the essential decision path remains. At 360px, display type steps down again and labels may compact without dropping the runtime story.
+The hero uses one normal-flow grid at every desktop width; there is no alternate absolute layout above 1200px. At 1080px, the approved-route family moves beneath the runtime as a horizontal strip. At 900px, desktop navigation becomes a menu and chapter grids stack, while dense canvases preserve two-column substructure where space allows. At 760px, both on-ramps recompose into a single-column scene, the sticky focus cue disappears, and each chapter keeps its own static label. At 640px, the complete sequence becomes vertical—on-ramps, runtime, approved routes, systems, signed record—while gutters become 1.15rem, chapter padding becomes 3.2rem, and tap targets stay at least 44px. At 360px, display type steps down again and labels may compact without dropping the runtime story.
 
 **The Dense-to-Legible Rule.** Responsive layouts recompose product canvases; they do not turn them into sparse screenshots. Preserve sources, the runtime decision, the active state, and the provenance outcome before preserving decorative or duplicate detail.
 
@@ -271,7 +271,7 @@ This is the signature component. It lays Route, Policy, Authority, and Approval 
 
 ### Motion Semantics
 
-Motion explains product state without hiding primary content. State transitions use 220ms, layout changes use 380ms, and the arrival curve is `cubic-bezier(0.16, 1, 0.3, 1)`. Both on-ramps and all source cards are visible from first paint; the source trace draws into the Runtime plane and the plane rises 16px once. As the reader moves through Route → Policy → Deploy → Operate, a surface-matched veil recedes from the active swimlane and returns over the lanes above and below. The content remains present beneath the treatment, and failed scripting leaves every chapter at full clarity.
+Motion explains product state without hiding primary content. State transitions use 220ms, layout changes use 380ms, and the arrival curve is `cubic-bezier(0.16, 1, 0.3, 1)`. Both on-ramps and every approved execution target are visible from first paint; the plane rises 16px once, then one outbound trace resolves the models, agents, and tools selected by task, data, and region. As the reader moves through Route → Policy → Deploy → Operate, a surface-matched veil recedes from the active swimlane and returns over the lanes above and below. The content remains present beneath the treatment, and failed scripting leaves every chapter at full clarity.
 
 Routing and deployment states change only after user action. Their frames remain mounted while the active route, workflow trace, deployment-stage indicator, and record fields resolve in place; no whole-panel fade is used. The lower adoption chapter keeps both paths visible simultaneously and fixes Aarvion Runtime beneath them. Reduced-motion mode removes authored animation and smooth scrolling while preserving every final state and interaction.
 

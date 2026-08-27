@@ -181,10 +181,10 @@
   z-index: 4;
   display: grid;
   grid-template:
-    "copy sources" auto
-    "paths sources" auto /
-    minmax(0, 1fr) clamp(13.75rem, 16vw, 15rem);
-  column-gap: clamp(2.75rem, 5.5vw, 6rem);
+    "copy copy" auto
+    "paths ." auto /
+    minmax(0, 1fr) clamp(16.5rem, 21vw, 19rem);
+  column-gap: clamp(3rem, 5vw, 5rem);
   width: var(--layout-width);
   margin-inline: auto;
   padding-top: clamp(3rem, 4.5vw, 4.75rem);
@@ -251,78 +251,13 @@
   transform: translateX(4px);
 }
 
-.sourceMap {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-area: sources;
-  grid-auto-rows: max-content;
-  align-self: stretch;
-  align-content: start;
-  gap: 0.65rem;
-  width: auto;
-  padding-left: 2.4rem;
-}
-
-.sourceRail {
-  position: absolute;
-  top: 1.75rem;
-  bottom: 0;
-  left: 0.35rem;
-  width: 1px;
-  background: rgba(38, 61, 145, 0.34);
-}
-
-.sourceRail::before,
-.sourceRail::after {
-  position: absolute;
-  left: -0.19rem;
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--indigo);
-  content: "";
-}
-
-.sourceRail::before {
-  top: -2px;
-}
-
-.sourceRail::after {
-  bottom: -2px;
-}
-
-.sourceNode {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-height: 47px;
-  padding: 0.7rem 0.85rem;
-  border: 1px solid rgba(10, 15, 24, 0.12);
-  background: var(--paper-bright);
-  color: #1f2630;
-  font-size: 0.73rem;
-  font-weight: 600;
-}
-
-.sourceNode::before {
-  position: absolute;
-  top: 50%;
-  left: -2.05rem;
-  width: 2.05rem;
-  height: 1px;
-  background: rgba(38, 61, 145, 0.28);
-  content: "";
-}
-
 .entryPaths {
   position: relative;
   z-index: 5;
   display: grid;
   grid-area: paths;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  justify-self: end;
+  justify-self: center;
   gap: 0.55rem;
   width: min(34rem, 100%);
   margin: clamp(1.25rem, 2vw, 1.75rem) 0 -2.25rem;
@@ -428,6 +363,22 @@
   margin-inline: auto;
 }
 
+.runtimeTopology {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(16.5rem, 21vw, 19rem);
+  gap: clamp(3rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.runtimeCore {
+  min-width: 0;
+}
+
+.runtimeCore .runtimeBrand {
+  font-size: 1.45rem;
+  letter-spacing: 0.11em;
+}
+
 .runtimeBrand,
 .runtimeLockup {
   display: flex;
@@ -458,6 +409,95 @@
 
 .compactDecision {
   margin-top: 0.8rem;
+}
+
+.approvedExecution {
+  position: relative;
+  align-self: start;
+  display: grid;
+  align-content: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.approvedExecution::before {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.7rem);
+  width: calc(clamp(3rem, 5vw, 5rem) - 1.4rem);
+  height: 1px;
+  background: color-mix(in srgb, var(--indigo-line) 70%, transparent);
+  content: "";
+}
+
+.approvedExecution::after {
+  position: absolute;
+  top: calc(50% - 3px);
+  right: calc(100% + clamp(3rem, 5vw, 5rem) - 0.7rem);
+  width: 7px;
+  height: 7px;
+  background: var(--indigo-pale);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--indigo-pale) 12%, transparent);
+  content: "";
+}
+
+.executionHeading h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.45rem;
+  font-weight: 680;
+  letter-spacing: -0.02em;
+}
+
+.executionHeading p {
+  max-width: 28ch;
+  margin: 0.35rem 0 0;
+  color: var(--indigo-pale);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  opacity: 0.82;
+}
+
+.executionTargets {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.executionTarget {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 58px;
+  padding: 0.65rem 0.75rem;
+  background: var(--paper-bright);
+  color: var(--indigo);
+}
+
+.executionTarget > span {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.executionTarget strong {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 690;
+}
+
+.executionTarget small,
+.executionRule {
+  color: var(--ink-soft);
+  font-size: 0.62rem;
+  line-height: 1.35;
+}
+
+.executionRule {
+  color: var(--indigo-pale);
+  font-family: var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .compactDecision .decisionTopline {
@@ -2921,6 +2961,52 @@
   }
 }
 
+@media (max-width: 1080px) {
+  .heroStage {
+    grid-template:
+      "copy" auto
+      "paths" auto /
+      minmax(0, 1fr);
+  }
+
+  .runtimeTopology {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .approvedExecution {
+    grid-template-columns: minmax(10rem, 0.65fr) minmax(0, 1.35fr);
+    gap: 0.7rem 1rem;
+    padding-top: 1.6rem;
+  }
+
+  .approvedExecution::before {
+    top: 0;
+    right: auto;
+    left: 50%;
+    width: 1px;
+    height: 1.15rem;
+  }
+
+  .approvedExecution::after {
+    top: 0;
+    right: auto;
+    left: calc(50% - 3px);
+  }
+
+  .executionTargets {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .executionRule {
+    grid-column: 2;
+  }
+
+  .runtimePlane {
+    min-height: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .navShell {
     grid-template-columns: 1fr auto;
@@ -2980,7 +3066,7 @@
   }
 
   .runtimePlane {
-    min-height: 590px;
+    min-height: 0;
   }
 
   .decisionGrid {
@@ -3076,26 +3162,9 @@
   .heroStage {
     grid-template:
       "copy" auto
-      "sources" auto
       "paths" auto /
       minmax(0, 1fr);
     gap: 1.25rem;
-  }
-
-  .sourceMap {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    width: auto;
-    padding-left: 0;
-  }
-
-  .sourceRail,
-  .sourceNode::before {
-    display: none;
-  }
-
-  .sourceNode:last-child {
-    grid-column: 1 / -1;
   }
 
   .entryPaths {
@@ -3105,7 +3174,7 @@
   }
 
   .runtimePlane {
-    min-height: 650px;
+    min-height: 0;
     padding-top: 100px;
   }
 
@@ -3151,26 +3220,6 @@
     width: 100%;
   }
 
-  .sourceMap {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    width: auto;
-    padding-left: 0;
-  }
-
-  .sourceRail,
-  .sourceNode::before {
-    display: none;
-  }
-
-  .sourceNode {
-    min-height: 42px;
-  }
-
-  .sourceNode:last-child {
-    grid-column: 1 / -1;
-  }
-
   .entryPaths {
     width: auto;
     margin: 0 0 -1.5rem;
@@ -3187,8 +3236,21 @@
 
   .runtimePlane {
     --plane-rise: 3.5rem;
-    min-height: 730px;
+    min-height: 0;
     padding-top: calc(var(--plane-rise) + 2.2rem);
+  }
+
+  .approvedExecution {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .executionTargets {
+    grid-template-columns: 1fr;
+  }
+
+  .executionRule {
+    grid-column: 1;
   }
 
   .runtimeBrand {
@@ -3224,10 +3286,6 @@
 
   .systemGrid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .systemArea {
-    display: none;
   }
 
   .systemGrid > div:last-child:nth-child(odd) {
@@ -3592,19 +3650,17 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .sourceRail {
-    transform-origin: top;
-    animation: traceDrawY 760ms 180ms var(--ease-arrive) both;
-  }
-
-  .sourceNode::before {
-    transform-origin: right;
-    animation: traceDrawX 360ms var(--ease-arrive) both;
-    animation-delay: calc(260ms + (var(--source-index) * 75ms));
-  }
-
   .runtimePlane {
     animation: planeEnter 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .approvedExecution {
+    animation: executionResolve 680ms 320ms var(--ease-arrive) both;
+  }
+
+  .approvedExecution::before {
+    transform-origin: left;
+    animation: traceDrawX 520ms 480ms var(--ease-arrive) both;
   }
 
   .stepLine[data-visible="true"] .stepMarker > div {
@@ -3656,6 +3712,19 @@
 @keyframes recordResolve {
   from { background-color: rgba(127, 224, 163, 0.08); }
   to { background-color: transparent; }
+}
+
+@keyframes executionResolve {
+  from {
+    filter: blur(3px);
+    opacity: 0.7;
+    transform: translateX(10px);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes runtimeStepResolve {
@@ -3724,9 +3793,8 @@
 
   .runtimePlane,
   .runtimeDecision,
-  .sourceNode,
-  .sourceRail,
   .entryPath,
+  .approvedExecution,
   .routingResolution,
   .deploymentTopology,
   .adoptionDetail,

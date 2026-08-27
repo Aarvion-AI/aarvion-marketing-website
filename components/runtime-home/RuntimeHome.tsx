@@ -14,13 +14,11 @@ import {
   PackageOpen,
   Server,
   ShieldCheck,
-  SquareTerminal,
   UserRoundCheck,
   Waypoints,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import type { CSSProperties } from "react";
 import { LogoMark } from "@/components/Logo";
 import { AdoptionPaths } from "./AdoptionPaths";
 import { ConditionalRouting } from "./ConditionalRouting";
@@ -35,12 +33,22 @@ import { RuntimeStoryArc } from "./RuntimeStoryArc";
 import { StoryMotionShell } from "./StoryMotionShell";
 import styles from "./runtime-home.module.css";
 
-const sourceNodes = [
-  { label: "Agent studio", icon: SquareTerminal },
-  { label: "Multi-agent workflow", icon: Network },
-  { label: "Foundation models", icon: Orbit },
-  { label: "Third-party agents", icon: Bot },
-  { label: "Custom code", icon: Braces },
+const executionTargets = [
+  {
+    label: "Models",
+    detail: "Frontier · local · sovereign",
+    icon: Orbit,
+  },
+  {
+    label: "Agents",
+    detail: "First-party · third-party",
+    icon: Bot,
+  },
+  {
+    label: "Tools",
+    detail: "Studios · APIs · custom code",
+    icon: Braces,
+  },
 ];
 
 const systems = [
@@ -148,20 +156,6 @@ export function RuntimeHome() {
               </div>
             </div>
 
-            <div className={styles.sourceMap} aria-label="Agent and model sources">
-              <div className={styles.sourceRail} aria-hidden="true" />
-              {sourceNodes.map(({ label, icon: Icon }, index) => (
-                <div
-                  className={styles.sourceNode}
-                  key={label}
-                  style={{ "--source-index": index } as CSSProperties}
-                >
-                  <Icon aria-hidden="true" size={17} strokeWidth={1.6} />
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
-
             <div className={styles.entryPaths} aria-label="Ways to start with Aarvion">
               <a className={styles.entryPath} href="#bring-your-agents">
                 <Network aria-hidden="true" size={20} strokeWidth={1.5} />
@@ -187,11 +181,36 @@ export function RuntimeHome() {
 
           <div className={styles.runtimePlane} id="runtime">
             <div className={styles.planeInner}>
-              <div className={styles.runtimeBrand}>
-                <LogoMark size={30} className={styles.inverseMark} />
-                <span>Aarvion Runtime</span>
+              <div className={styles.runtimeTopology} data-evidence>
+                <div className={styles.runtimeCore}>
+                  <div className={styles.runtimeBrand}>
+                    <LogoMark size={30} className={styles.inverseMark} />
+                    <span>Aarvion Runtime</span>
+                  </div>
+                  <RuntimeDecision compact />
+                </div>
+                <aside
+                  className={styles.approvedExecution}
+                  aria-label="Approved models, agents, and tools"
+                >
+                  <div className={styles.executionHeading}>
+                    <h2>Approved routes</h2>
+                    <p>Models, agents, and tools selected for each step.</p>
+                  </div>
+                  <div className={styles.executionTargets}>
+                    {executionTargets.map(({ label, detail, icon: Icon }) => (
+                      <div className={styles.executionTarget} key={label}>
+                        <Icon aria-hidden="true" size={18} strokeWidth={1.55} />
+                        <span>
+                          <strong>{label}</strong>
+                          <small>{detail}</small>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <span className={styles.executionRule}>By task · data · region</span>
+                </aside>
               </div>
-              <RuntimeDecision compact />
               <div className={styles.systemArea}>
                 <p>Enterprise systems</p>
                 <div className={styles.systemGrid}>
