@@ -11,7 +11,14 @@ let initialized = false;
 
 export function AmplitudeAnalytics() {
   useEffect(() => {
-    if (initialized || !API_KEY) return;
+    if (
+      initialized ||
+      !API_KEY ||
+      process.env.NODE_ENV !== "production" ||
+      ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname)
+    ) {
+      return;
+    }
     initialized = true;
     amplitude.initAll(API_KEY, {
       analytics: { autocapture: true },

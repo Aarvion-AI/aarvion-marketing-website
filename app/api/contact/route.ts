@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO ?? "rohit@aarvion.ai";
+  const to = process.env.CONTACT_TO ?? "sales@aarvion.ai";
   const from = process.env.CONTACT_FROM ?? "Aarvion <onboarding@resend.dev>";
 
   if (!apiKey) {
@@ -39,13 +39,13 @@ export async function POST(req: Request) {
       { name: body.name, email: body.email, company: body.company }
     );
     return NextResponse.json(
-      { error: "Email delivery is not configured. Please email rohit@aarvion.ai directly." },
+      { error: "Email delivery is not configured. Please email sales@aarvion.ai directly." },
       { status: 503 }
     );
   }
 
   const text = [
-    `New design-partnership application`,
+    `New Aarvion demo request`,
     ``,
     `Name:    ${body.name}`,
     `Email:   ${body.email}`,
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
       from,
       to: [to],
       reply_to: body.email,
-      subject: `Aarvion design partnership — ${body.company}`,
+      subject: `Aarvion demo request — ${body.company}`,
       text,
     }),
   });
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
     const detail = await res.text();
     console.error("[contact] Resend failure", { status: res.status, detail });
     return NextResponse.json(
-      { error: "Email delivery failed. Please email rohit@aarvion.ai directly." },
+      { error: "Email delivery failed. Please email sales@aarvion.ai directly." },
       { status: 502 }
     );
   }
