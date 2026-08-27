@@ -334,7 +334,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 36%;
+  height: 30.4%;
   background: #223574;
   content: "";
 }
@@ -3004,6 +3004,10 @@
 
   .runtimePlane {
     min-height: 0;
+  }
+
+  .runtimePlane::after {
+    height: 27.2%;
   }
 }
 
