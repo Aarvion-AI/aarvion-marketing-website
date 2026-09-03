@@ -5,9 +5,15 @@ export const ORG_LINKEDIN =
 export const ORG_X = "https://twitter.com/AarvionA11452";
 
 export const DEFAULT_DESCRIPTION =
-  "Aarvion is the runtime governance layer for enterprise AI agents. Enforce policy on every agent action in under 5ms and hand your regulator a cryptographically signed audit in 90 seconds.";
+  "Run your agents or start with a Cadre pack. Aarvion routes each workflow step, checks delegated authority, and records the decision across handoffs.";
 
 export const PRIMARY_KEYWORDS = [
+  "enterprise agent runtime",
+  "AI agent routing",
+  "sovereign AI routing",
+  "local AI models",
+  "frontier AI models",
+  "AI agent deployment",
   "AI agent governance",
   "AI agent security",
   "runtime policy enforcement",
@@ -97,18 +103,11 @@ export function softwareApplicationJsonLd() {
   return jsonLd({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: `${SITE_NAME} — AI Agent Governance Proxy`,
-    applicationCategory: "SecurityApplication",
-    operatingSystem: "Cloud, Kubernetes, Customer VPC",
+    name: `${SITE_NAME} — Enterprise Agent Runtime`,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Cloud and private infrastructure",
     url: SITE_URL,
     description: DEFAULT_DESCRIPTION,
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/PreOrder",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Design partnership program for regulated enterprises.",
-    },
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   });
 }
