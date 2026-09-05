@@ -45,7 +45,7 @@ export function MobileNav() {
           <a href="#deployment" onClick={close}>Deployment</a>
           <a href="#product" onClick={close}>Product</a>
           <a href="#cadre" onClick={close}>Cadre</a>
-          <a href="https://dev.aarvion.ai/" target="_blank" rel="noreferrer" onClick={close}>Log in</a>
+          <a href="https://dashboard.aarvion.ai/" target="_blank" rel="noreferrer" onClick={close}>Log in</a>
           <a className={styles.mobileDemo} href="#demo" onClick={close}>Book a demo</a>
         </nav>
       )}

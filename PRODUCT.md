@@ -47,7 +47,7 @@ The product sits in the action path between agents and enterprise systems. It su
 - Aarvion pitch deck: `https://docs.google.com/presentation/d/1_89sk8g_HpOFMPQMNYV-_Unduc4223y3CAGve9YSTn0/edit`
 - Public Cadre library: `https://cadreagents.com`
 - Cadre product console: `https://cadre.aarvion.ai/overview`
-- Aarvion product dashboard: `https://dev.aarvion.ai/`
+- Aarvion product dashboard: `https://dashboard.aarvion.ai/`
 - Current-site, reference-site, and signed-in product screenshots: `C:/Users/rahil/.codex/visualizations/2026/08/26/01a03f82-2cae-71c0-8046-e0e5d8221782/aarvion-redesign/`
 - No customer case study, logo permission, benchmark methodology, or certification claim has been confirmed for the public homepage.
 

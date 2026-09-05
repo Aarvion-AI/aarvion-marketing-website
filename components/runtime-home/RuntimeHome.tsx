@@ -120,7 +120,7 @@ export function RuntimeHome() {
         </nav>
 
         <div className={styles.navActions}>
-          <a href="https://dev.aarvion.ai/" target="_blank" rel="noreferrer">
+          <a href="https://dashboard.aarvion.ai/" target="_blank" rel="noreferrer">
             Log in
           </a>
           <a className={styles.navCta} href="#demo">
@@ -330,7 +330,7 @@ export function RuntimeHome() {
         <nav aria-label="Footer navigation">
           <a href="https://cadreagents.com" target="_blank" rel="noreferrer">Cadre</a>
           <a href="mailto:sales@aarvion.ai">sales@aarvion.ai</a>
-          <a href="https://dev.aarvion.ai/" target="_blank" rel="noreferrer">Product login</a>
+          <a href="https://dashboard.aarvion.ai/" target="_blank" rel="noreferrer">Product login</a>
         </nav>
       </footer>
     </StoryMotionShell>
