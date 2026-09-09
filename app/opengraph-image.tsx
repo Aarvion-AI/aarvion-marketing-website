@@ -1,9 +1,10 @@
 import { ImageResponse } from "next/og";
 
-export const alt =
-  "Aarvion — Govern every AI agent before it touches production";
+export const alt = "Aarvion — The runtime that takes enterprise agents from pilot to production";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const steps = ["Route", "Policy", "Authority", "Review", "Act"];
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -16,70 +17,82 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           background:
-            "radial-gradient(900px 500px at 80% -10%, rgba(34,211,238,0.18), transparent), #07090d",
-          padding: "72px",
+            "linear-gradient(135deg, #fbfaf6 0%, #f6f3ec 55%, #dce2ff 100%)",
+          padding: "64px 72px",
           fontFamily: "sans-serif",
+          position: "relative",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: 150,
+            background: "linear-gradient(90deg, #2b3f86, #162250)",
+            clipPath: "polygon(0 55%, 100% 0, 100% 100%, 0 100%)",
+          }}
+        />
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div
             style={{
               width: 44,
               height: 44,
-              borderRadius: 10,
-              background: "#22d3ee",
-              color: "#07090d",
+              borderRadius: 12,
+              background: "#162250",
+              color: "#fbfaf6",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 30,
+              fontSize: 28,
               fontWeight: 800,
             }}
           >
             A
           </div>
-          <div style={{ color: "#e6edf3", fontSize: 34, fontWeight: 700 }}>
-            Aarvion
-          </div>
+          <div style={{ color: "#0a0f18", fontSize: 32, fontWeight: 700 }}>Aarvion</div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div
             style={{
-              color: "#e6edf3",
-              fontSize: 70,
+              color: "#0a0f18",
+              fontSize: 66,
               fontWeight: 700,
-              lineHeight: 1.05,
-              letterSpacing: -2,
-              maxWidth: 1000,
+              lineHeight: 1.04,
+              letterSpacing: -2.5,
+              maxWidth: 980,
             }}
           >
-            Govern every AI agent before it touches production.
+            The runtime that takes enterprise agents from pilot to production.
           </div>
-          <div style={{ color: "#8b97a8", fontSize: 30, maxWidth: 940 }}>
-            Runtime policy enforcement in &lt;5ms. Cryptographically signed
-            audit in 90 seconds.
+          <div style={{ color: "#535a66", fontSize: 28, maxWidth: 900, lineHeight: 1.35 }}>
+            Route every step. Gate every consequential action. Keep a signed
+            record of who allowed what.
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
-          {["SOC 2", "ISO 27001", "GDPR", "HIPAA", "EU AI Act"].map((c) => (
+        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+          {steps.map((step, index) => (
             <div
-              key={c}
+              key={step}
               style={{
-                color: "#8b97a8",
+                color: index === steps.length - 1 ? "#fbfaf6" : "#162250",
+                background: index === steps.length - 1 ? "#162250" : "#fbfaf6",
                 fontSize: 22,
-                border: "1px solid #2a3344",
-                borderRadius: 8,
-                padding: "8px 16px",
+                fontWeight: 700,
+                border: "1px solid #cbc5b8",
+                borderRadius: 999,
+                padding: "10px 20px",
               }}
             >
-              {c}
+              {step}
             </div>
           ))}
         </div>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

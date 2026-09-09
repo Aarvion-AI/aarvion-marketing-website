@@ -29,7 +29,7 @@ export const SOLUTIONS: Record<string, Solution> = {
     metaTitle:
       "AI Agent Governance — Enforce Policy on Every Agent Action | Aarvion",
     metaDescription:
-      "AI agent governance enforces what your autonomous agents are allowed to do before they act. Aarvion authorizes or blocks every action in under 5ms and signs an auditable trail.",
+      "AI agent governance enforces what your autonomous agents are allowed to do before they act. Aarvion passes, parks, or blocks every consequential action at runtime and signs an auditable trail.",
     keywords: [
       "AI agent governance",
       "agentic AI governance",
@@ -54,7 +54,7 @@ export const SOLUTIONS: Record<string, Solution> = {
           "Before an agent approves a refund, changes a record, executes a workflow, or triggers a payment, Aarvion verifies the action is authorized by your policy, records cryptographic provenance, and writes an auditable decision trail.",
         ],
         bullets: [
-          "Policy check and authorization on the hot path at sub-5ms p99",
+          "Policy check and authorization in the action path, before the system is touched",
           "Works with any agent — internal copilots, vendor agents, OpenAI, Anthropic — with no SDK or model lock-in",
           "Policy manifests are open YAML in your own Git repository: diff, review, and revert like any other code",
           "Start in shadow mode with zero production impact, then promote to bounded enforcement when you're ready",
@@ -72,7 +72,7 @@ export const SOLUTIONS: Record<string, Solution> = {
       {
         question: "What is AI agent governance?",
         answer:
-          "AI agent governance is enforcing what an autonomous AI agent is allowed to do before it acts on production systems, with an auditable record of every decision. Aarvion enforces this at runtime as a proxy, authorizing or blocking each action in under 5ms.",
+          "AI agent governance is enforcing what an autonomous AI agent is allowed to do before it acts on production systems, with an auditable record of every decision. Aarvion enforces this at runtime, passing, parking, or blocking each consequential action before it reaches a system.",
       },
       {
         question: "How is runtime governance different from prompt guardrails?",
@@ -91,7 +91,7 @@ export const SOLUTIONS: Record<string, Solution> = {
     metaTitle:
       "AI Agent Security — Stop Prompt Injection at the Action Layer | Aarvion",
     metaDescription:
-      "Secure enterprise AI agents with a runtime proxy that authorizes every action. Block prompt injection and unsafe calls before they reach your systems — in under 5ms.",
+      "Secure enterprise AI agents with a runtime proxy that authorizes every action. Block prompt injection and unsafe calls before they reach your systems.",
     keywords: [
       "AI agent security",
       "LLM security proxy",
@@ -118,7 +118,7 @@ export const SOLUTIONS: Record<string, Solution> = {
         bullets: [
           "Deterministic authorization on every CRM, ERP, payment, claims, and identity call",
           "No SDK to embed and no model lock-in — secure any agent the same way",
-          "Sub-5ms p99 so enforcement lives in the hot path without slowing agents down",
+          "Deterministic policy evaluation designed to live in the hot path without slowing agents down",
           "Shadow mode first to observe real traffic with zero production impact",
         ],
       },
@@ -138,7 +138,7 @@ export const SOLUTIONS: Record<string, Solution> = {
       {
         question: "Does securing agents this way slow them down?",
         answer:
-          "No. Policy enforcement runs at sub-5ms p99, so it sits in the hot path of agent traffic without becoming a bottleneck.",
+          "No. Policy evaluation is deterministic and designed to sit in the hot path of agent traffic without becoming a bottleneck.",
       },
     ],
     related: ["ai-agent-governance", "ai-agent-compliance", "ai-agent-audit-trail"],
@@ -188,7 +188,7 @@ export const SOLUTIONS: Record<string, Solution> = {
       {
         heading: "Compliance evidence that generates itself",
         body: [
-          "Each decision links to a human, an approval, a rule version, and a manifest commit. A multi-week audit reconstruction becomes a 90-second query that produces a signed PDF — externally witnessed and tamper-evident.",
+          "Each decision links to a human, an approval, a rule version, and a manifest commit. A multi-week audit reconstruction becomes a query against the signed record — tamper-evident and exportable.",
         ],
       },
     ],
@@ -201,7 +201,7 @@ export const SOLUTIONS: Record<string, Solution> = {
       {
         question: "How long does an audit take with Aarvion?",
         answer:
-          "A regulator query that used to take weeks of reconstruction becomes a 90-second query that produces a signed, externally witnessed PDF.",
+          "A regulator question that used to take weeks of reconstruction becomes a query against the signed record, exported as evidence.",
       },
     ],
     related: ["ai-agent-governance", "ai-agent-audit-trail", "ai-agent-security"],
@@ -215,7 +215,7 @@ export const SOLUTIONS: Record<string, Solution> = {
     metaTitle:
       "AI Agent Audit Trail — Cryptographic Provenance in 90 Seconds | Aarvion",
     metaDescription:
-      "Give every AI agent action a tamper-evident, hash-chained audit trail. Aarvion turns a 14-day audit reconstruction into a 90-second signed query.",
+      "Give every AI agent action a tamper-evident, hash-chained audit trail. Aarvion turns a multi-week audit reconstruction into a query against a signed record.",
     keywords: [
       "AI agent audit trail",
       "cryptographic provenance",
@@ -228,9 +228,9 @@ export const SOLUTIONS: Record<string, Solution> = {
       "An AI agent audit trail records what each agent did, why, and on whose authority — in a form no one can quietly edit later. Aarvion signs every consequential action against your governance and hash-chains it, so your audit is a mathematical proof, not a best-effort log.",
     sections: [
       {
-        heading: "From 14-day reconstruction to 90-second query",
+        heading: "From weeks of reconstruction to a single query",
         body: [
-          "Reconstructing what an AI agent did across logs, tickets, and approvals can take weeks. Aarvion replaces that with a single query: filter by agent and time window, and get a signed PDF in about 90 seconds.",
+          "Reconstructing what an AI agent did across logs, tickets, and approvals can take weeks. Aarvion replaces that with a single query: filter by agent and time window, and export the signed record as evidence.",
           "Each record links to a human, an approval, a rule version, and a manifest commit — so the story of every decision is already assembled.",
         ],
       },

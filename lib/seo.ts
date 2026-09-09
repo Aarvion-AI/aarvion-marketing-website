@@ -43,7 +43,7 @@ export const HOME_FAQS: Faq[] = [
   {
     question: "What is AI agent governance?",
     answer:
-      "AI agent governance is the practice of enforcing what an autonomous AI agent is allowed to do before it acts on your production systems, recording an auditable trail of every decision. Aarvion delivers this as a runtime proxy: every consequential action is checked against your policy, authorized or blocked in under 5ms, and signed into a tamper-evident provenance chain.",
+      "AI agent governance is the practice of enforcing what an autonomous AI agent is allowed to do before it acts on your production systems, recording an auditable trail of every decision. Aarvion delivers this as a runtime: every consequential action is routed, checked against your policy and delegated authority, passed, parked for review, or blocked, and signed into a tamper-evident provenance chain.",
   },
   {
     question: "How does Aarvion stop a prompt injection from reaching my systems?",
@@ -53,12 +53,12 @@ export const HOME_FAQS: Faq[] = [
   {
     question: "Do I need to change my agent code or add an SDK?",
     answer:
-      "No. Aarvion is a proxy, not a framework or SDK. It runs inside your own VPC and your agents simply route their calls through it. It works with any agent — internal copilots, vendor agents, OpenAI, or Anthropic — with no model lock-in.",
+      "No. Aarvion sits between your agents and your systems, not inside your agent code. It runs inside your own VPC and your agents route their calls through it. It works with any agent — internal copilots, vendor agents, MCP servers, OpenClaw installations, OpenAI, or Anthropic — with no model lock-in.",
   },
   {
     question: "How does Aarvion help with SOC 2, ISO 27001, GDPR, and the EU AI Act?",
     answer:
-      "Every consequential action is signed against your governance, hash-chained, and externally witnessed. A multi-week audit reconstruction becomes a 90-second query that produces a signed PDF mapping cleanly to SOC 2, ISO 27001, GDPR, EU AI Act, and FFIEC requirements.",
+      "Every consequential action is signed against your governance and hash-chained. Instead of reconstructing what an agent did from scattered logs, you query the signed record and export evidence that maps to SOC 2, ISO 27001, GDPR, EU AI Act, and FFIEC requirements.",
   },
   {
     question: "Where does Aarvion run and does my data leave my environment?",
@@ -66,9 +66,9 @@ export const HOME_FAQS: Faq[] = [
       "Aarvion is deployed inside your own cloud as a proxy in your VPC. Operational data never leaves your environment. Policy manifests live in your own Git repository as open YAML you own, version, and review like any other code.",
   },
   {
-    question: "How fast is the policy check?",
+    question: "Does the policy check slow my agents down?",
     answer:
-      "Policy enforcement runs at sub-5ms p99, so it sits in the hot path of real agent traffic without becoming a bottleneck. You can start in shadow mode with zero production impact, then promote to bounded enforcement when you are ready.",
+      "Policy evaluation is deterministic and sits in the hot path of agent traffic, so it is designed not to become a bottleneck. You can start in shadow mode with zero production impact, then promote to bounded enforcement when you are ready.",
   },
 ];
 

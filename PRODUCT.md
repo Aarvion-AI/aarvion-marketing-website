@@ -33,7 +33,8 @@ The product sits in the action path between agents and enterprise systems. It su
 - Aarvion Runtime routes steps, evaluates policy and authority, returns PASS, PARK, or BLOCK, supports human approval, and preserves a signed record.
 - The homepage's primary conversion is **Book a demo**.
 - MCP and OpenClaw are connection modes and integrations, not separate top-level product stories.
-- Customer names, benchmarks, certifications, and production results remain unconfirmed for public use and must not be fabricated.
+- Approved public proof (2026-09-09): membership of the NVIDIA Inception Program; "Used by teams at" FarEye, Adobe, Esri, and Postman; customers Flipkart group (Flipkart, Myntra, Cleartrip, Shopsy and other units) and EdgePoint; a founding team from Postman, Deloitte, PwC, and EY. Nothing beyond this list may be claimed.
+- Benchmarks, latency figures, percentages, certifications, and production results remain unconfirmed and must not appear anywhere on the site.
 
 ## Brand Commitments
 
@@ -49,7 +50,8 @@ The product sits in the action path between agents and enterprise systems. It su
 - Cadre product console: `https://cadre.aarvion.ai/overview`
 - Aarvion product dashboard: `https://dashboard.aarvion.ai/`
 - Current-site, reference-site, and signed-in product screenshots: `C:/Users/rahil/.codex/visualizations/2026/08/26/01a03f82-2cae-71c0-8046-e0e5d8221782/aarvion-redesign/`
-- No customer case study, logo permission, benchmark methodology, or certification claim has been confirmed for the public homepage.
+- Approved social proof is listed above and in `lib/proof.ts`; official logo files are still pending and marks render as typographic wordmarks until `public/logos/<id>.svg` exists.
+- No case study, benchmark methodology, or certification claim has been confirmed for public use.
 
 ## Product Principles
 

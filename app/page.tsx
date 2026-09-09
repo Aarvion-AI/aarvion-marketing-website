@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { RuntimeHome } from "@/components/runtime-home/RuntimeHome";
+import { HomePage } from "@/components/home/HomePage";
+import { JsonLd } from "@/components/site/JsonLd";
+import { DEFAULT_DESCRIPTION, HOME_FAQS, faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "The enterprise agent runtime",
-  description:
-    "Run your agents or start with a Cadre pack. Aarvion routes each workflow step, checks delegated authority, and records the decision across handoffs.",
+  description: DEFAULT_DESCRIPTION,
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {
-  return <RuntimeHome />;
+  return (
+    <>
+      <JsonLd data={[faqJsonLd(HOME_FAQS)]} />
+      <HomePage />
+    </>
+  );
 }

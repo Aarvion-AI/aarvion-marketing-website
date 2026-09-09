@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
-import { JsonLd } from "@/components/JsonLd";
-import { AmplitudeAnalytics } from "@/components/AmplitudeAnalytics";
+import { AmplitudeAnalytics } from "@/components/site/AmplitudeAnalytics";
+import { Footer } from "@/components/site/Footer";
+import { JsonLd } from "@/components/site/JsonLd";
+import { Nav } from "@/components/site/Nav";
 import {
   SITE_URL,
   SITE_NAME,
@@ -63,28 +65,32 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#f6f3ec",
+  colorScheme: "light",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${manrope.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <template
-          data-direction-contract="aarvion-runtime-plane"
+      <body className="flex min-h-full flex-col">
+        <script
           dangerouslySetInnerHTML={{
-            __html: `<!--
-THESIS: Aarvion turns a fragmented agent estate into one controllable runtime across every consequential handoff.
-OWN-WORLD: A slanted mineral-indigo runtime plane sits between agents above and enterprise systems below.
-STORY: Bring your agents or start with Cadre; route each step across frontier, local, or sovereign execution; check policy and delegated authority; review when required; preserve the record.
-FIRST VIEWPORT: Warm mineral field, left-aligned enterprise promise, live source map, and a full-width runtime plane already making an illustrative decision.
-FORM: seed key 8749a56a; position 4 — layered infrastructural plane, dense operating interface, abrupt light-to-dark chapter breaks.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
--->`,
+            __html: "document.documentElement.dataset.motion='ready'",
           }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-md focus:bg-night focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:text-paper-bright"
+        >
+          Skip to content
+        </a>
         <AmplitudeAnalytics />
         <JsonLd
           data={[
@@ -93,7 +99,9 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
             softwareApplicationJsonLd(),
           ]}
         />
-        {children}
+        <Nav />
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );

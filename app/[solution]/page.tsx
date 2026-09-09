@@ -1,12 +1,17 @@
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
-import { Faq } from "@/components/Faq";
-import { JsonLd } from "@/components/JsonLd";
+import { Button } from "@/components/site/Button";
+import { ClosingCta } from "@/components/site/ClosingCta";
+import { Container } from "@/components/site/Container";
+import { Faq } from "@/components/site/Faq";
+import { JsonLd } from "@/components/site/JsonLd";
+import { Reveal } from "@/components/site/Reveal";
+import { Section } from "@/components/site/Section";
 import { SOLUTIONS, getSolution } from "@/lib/solutions";
 import { SITE_URL, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { CTA } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -58,121 +63,122 @@ export default async function SolutionPage({ params }: Props) {
           faqJsonLd(data.faqs),
         ]}
       />
-      <Nav />
-      <main className="flex-1">
-        <section className="relative overflow-hidden border-b border-border/60">
-          <div className="absolute inset-0 grid-bg opacity-50" aria-hidden />
-          <div
-            className="absolute inset-x-0 -top-24 h-72 bg-gradient-to-b from-cyan/10 via-transparent to-transparent blur-3xl"
-            aria-hidden
-          />
-          <div className="relative mx-auto max-w-4xl px-6 pt-16 pb-16 sm:pt-20">
-            <nav
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2 text-xs text-fg-dim"
-            >
-              <Link href="/" className="hover:text-fg transition-colors">
+      <main id="main-content">
+        <section className="relative overflow-hidden pt-12 pb-12 sm:pt-16 sm:pb-16 lg:pt-20">
+          <div aria-hidden="true" className="grid-bg absolute inset-x-0 top-0 h-[30rem]" />
+          <Container className="relative max-w-4xl">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[0.82rem] text-ink-dim">
+              <Link href="/" className="transition-colors hover:text-ink">
                 Home
               </Link>
-              <span aria-hidden>/</span>
-              <span className="text-fg-muted">{data.title}</span>
+              <span aria-hidden="true">/</span>
+              <span className="text-ink-muted">{data.title}</span>
             </nav>
-            <p className="mt-8 text-xs uppercase tracking-[0.12em] font-mono text-cyan">
-              {data.eyebrow}
-            </p>
-            <h1 className="mt-4 text-balance text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.08]">
+            <span className="mono-label animate-rise mt-8 block text-indigo">{data.eyebrow}</span>
+            <h1
+              className="display-xl animate-rise mt-4 text-balance"
+              style={{ animationDelay: "80ms" }}
+            >
               {data.h1}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-fg-muted leading-relaxed">
+            <p
+              className="animate-rise mt-6 max-w-2xl text-[1.1rem] leading-relaxed text-ink-muted"
+              style={{ animationDelay: "160ms" }}
+            >
               {data.intro}
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a
-                href="/#partnership"
-                className="inline-flex items-center gap-2 rounded-md bg-fg px-4 py-2.5 text-sm font-medium text-bg hover:bg-cyan transition-colors"
-              >
-                Apply for design partnership
-                <span aria-hidden>→</span>
-              </a>
-              <a
-                href="/#what"
-                className="inline-flex items-center gap-2 rounded-md border border-border-strong bg-panel px-4 py-2.5 text-sm font-medium text-fg hover:border-cyan/40 transition-colors"
-              >
+            <div className="animate-rise mt-9 flex flex-wrap gap-3" style={{ animationDelay: "240ms" }}>
+              <Button href={CTA.demo.href} size="lg">
+                {CTA.demo.label}
+                <ArrowRight aria-hidden="true" size={17} />
+              </Button>
+              <Button href="/features" variant="secondary" size="lg">
                 See how it works
-              </a>
+              </Button>
             </div>
-          </div>
+          </Container>
         </section>
 
-        <article className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
-          <div className="space-y-16">
+        <Container className="max-w-4xl">
+          <article className="grid gap-12 rounded-xl border border-line bg-paper-bright p-7 shadow-card sm:p-10 lg:p-14">
             {data.sections.map((section) => (
-              <section key={section.heading}>
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-tight">
-                  {section.heading}
-                </h2>
-                <div className="mt-5 space-y-4">
-                  {section.body.map((p, i) => (
-                    <p
-                      key={i}
-                      className="text-[16px] leading-relaxed text-fg-muted"
-                    >
-                      {p}
-                    </p>
-                  ))}
-                </div>
-                {section.bullets && (
-                  <ul className="mt-6 space-y-3">
-                    {section.bullets.map((b) => (
-                      <li key={b} className="flex gap-3 text-[15px] text-fg/90">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" />
-                        <span className="leading-relaxed">{b}</span>
-                      </li>
+              <Reveal key={section.heading}>
+                <section>
+                  <h2 className="text-[1.6rem] font-bold leading-tight tracking-[-0.02em] text-ink sm:text-[1.85rem]">
+                    {section.heading}
+                  </h2>
+                  <div className="mt-4 grid gap-4 text-[1.02rem] leading-[1.75] text-ink-soft">
+                    {section.body.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
                     ))}
-                  </ul>
-                )}
-              </section>
+                  </div>
+                  {section.bullets && (
+                    <ul className="mt-6 grid gap-3">
+                      {section.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-3 text-[0.98rem] text-ink">
+                          <span
+                            className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo"
+                            aria-hidden="true"
+                          />
+                          <span className="leading-relaxed">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              </Reveal>
             ))}
-          </div>
-        </article>
+          </article>
+        </Container>
 
-        <Faq items={data.faqs} />
+        <Section labelledBy="solution-faq-title">
+          <Container className="max-w-4xl">
+            <Reveal className="text-center">
+              <h2 id="solution-faq-title" className="headline text-balance">
+                Frequently asked.
+              </h2>
+            </Reveal>
+            <Reveal delay={100}>
+              <Faq items={data.faqs} group="solution-faq" className="mt-10" />
+            </Reveal>
+          </Container>
+        </Section>
 
-        <section className="border-b border-border/60 py-20">
-          <div className="mx-auto max-w-4xl px-6">
-            <p className="text-xs uppercase tracking-[0.12em] font-mono text-cyan">
-              Keep exploring
-            </p>
-            <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight">
-              Related to {data.title.toLowerCase()}
-            </h2>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {data.related.map((slug) => {
-                const r = getSolution(slug);
-                if (!r) return null;
-                return (
-                  <Link
-                    key={slug}
-                    href={`/${slug}`}
-                    className="group rounded-xl border border-border/80 bg-panel/40 p-5 transition-colors hover:border-cyan/40"
-                  >
-                    <div className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-cyan">
-                      {r.eyebrow}
-                    </div>
-                    <div className="mt-3 text-[15px] font-medium text-fg group-hover:text-cyan transition-colors">
-                      {r.title}
-                    </div>
-                    <div className="mt-2 text-[13px] text-fg-muted leading-relaxed line-clamp-3">
-                      {r.metaDescription}
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <Section labelledBy="related-title" className="pt-0 sm:pt-0 lg:pt-0">
+          <Container className="max-w-4xl">
+            <Reveal>
+              <h2 id="related-title" className="title">
+                Related to {data.title.toLowerCase()}
+              </h2>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                {data.related.map((slug) => {
+                  const related = getSolution(slug);
+                  if (!related) return null;
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/${slug}`}
+                      className="group rounded-lg border border-line bg-paper-bright p-5 shadow-card transition-colors hover:border-indigo-line"
+                    >
+                      <span className="mono-label text-indigo">{related.eyebrow}</span>
+                      <span className="mt-3 block text-[1rem] font-bold text-ink group-hover:text-indigo">
+                        {related.title}
+                      </span>
+                      <span className="mt-2 line-clamp-3 block text-[0.85rem] leading-relaxed text-ink-muted">
+                        {related.metaDescription}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </Reveal>
+          </Container>
+        </Section>
+
+        <ClosingCta />
       </main>
-      <Footer />
     </>
   );
 }
