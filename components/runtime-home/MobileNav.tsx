@@ -2,6 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { LOGIN_URL } from "@/lib/seo";
 import styles from "./runtime-home.module.css";
 
 export function MobileNav() {
@@ -45,7 +46,7 @@ export function MobileNav() {
           <a href="#deployment" onClick={close}>Deployment</a>
           <a href="#product" onClick={close}>Product</a>
           <a href="#cadre" onClick={close}>Cadre</a>
-          <a href="https://dashboard.aarvion.ai/" target="_blank" rel="noreferrer" onClick={close}>Log in</a>
+          <a href={LOGIN_URL} target="_blank" rel="noreferrer" onClick={close}>Log in</a>
           <a className={styles.mobileDemo} href="#demo" onClick={close}>Book a demo</a>
         </nav>
       )}

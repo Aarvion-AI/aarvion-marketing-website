@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Bot, Server, Terminal, Library, ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
+import { LOGIN_URL } from "@/lib/seo";
 
 const PRODUCTS = [
   {
@@ -126,7 +127,7 @@ export function Nav() {
           </a>
         </nav>
         <a
-          href="https://dashboard.aarvion.ai/login"
+          href={LOGIN_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 rounded-md border border-border-strong bg-panel px-3.5 py-1.5 text-sm font-medium text-fg hover:bg-bg-elev hover:border-cyan/40 transition-colors"
