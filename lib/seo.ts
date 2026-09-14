@@ -1,5 +1,6 @@
 export const SITE_URL = "https://www.aarvion.ai";
 export const SITE_NAME = "Aarvion";
+export const LOGIN_URL = "https://developer.aarvion.ai";
 export const ORG_LINKEDIN =
   "https://www.linkedin.com/company/aarvion-ai-private-limited/";
 export const ORG_X = "https://twitter.com/AarvionA11452";
