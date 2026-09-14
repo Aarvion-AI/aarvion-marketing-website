@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { track } from "@/lib/analytics";
 import styles from "./runtime-home.module.css";
 
 type FormState = "idle" | "loading" | "success" | "error";
@@ -27,9 +28,11 @@ export function DemoForm() {
       if (!response.ok) throw new Error(result.error || "We couldn’t send your request.");
       form.reset();
       setState("success");
+      track("demo_request_sent");
       setMessage("Thanks. We’ll follow up to schedule the demo.");
     } catch (error) {
       setState("error");
+      track("demo_request_failed");
       setMessage(
         error instanceof Error
           ? error.message
@@ -101,6 +104,10 @@ export function DemoDisclosure() {
       document.removeEventListener("click", openFromDemoLink);
     };
   }, []);
+
+  useEffect(() => {
+    if (open) track("demo_form_opened");
+  }, [open]);
 
   if (open) return <DemoForm />;
 
