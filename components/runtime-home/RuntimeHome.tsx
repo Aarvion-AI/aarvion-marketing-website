@@ -121,10 +121,10 @@ export function RuntimeHome() {
         </nav>
 
         <div className={styles.navActions}>
-          <a href={LOGIN_URL} target="_blank" rel="noreferrer">
+          <a href={LOGIN_URL} target="_blank" rel="noreferrer" data-cta="login_nav">
             Log in
           </a>
-          <a className={styles.navCta} href="#demo">
+          <a className={styles.navCta} href="#demo" data-cta="demo_nav">
             Book a demo
           </a>
         </div>
@@ -147,7 +147,7 @@ export function RuntimeHome() {
                 writes the handoff to a signed record.
               </p>
               <div className={styles.heroActions}>
-                <a className={styles.primaryButton} href="#demo">
+                <a className={styles.primaryButton} href="#demo" data-cta="demo_hero">
                   Book a demo <ArrowRight aria-hidden="true" size={17} />
                 </a>
                 <a className={styles.textButton} href="#runtime">
@@ -157,7 +157,7 @@ export function RuntimeHome() {
             </div>
 
             <div className={styles.entryPaths} aria-label="Ways to start with Aarvion">
-              <a className={styles.entryPath} href="#bring-your-agents">
+              <a className={styles.entryPath} href="#bring-your-agents" data-cta="bring_agents_hero">
                 <Network aria-hidden="true" size={20} strokeWidth={1.5} />
                 <span>
                   <small>Bring your agents</small>
@@ -169,6 +169,7 @@ export function RuntimeHome() {
                 href="https://cadreagents.com"
                 target="_blank"
                 rel="noreferrer"
+                data-cta="cadre_hero"
               >
                 <PackageOpen aria-hidden="true" size={20} strokeWidth={1.5} />
                 <span>
@@ -331,7 +332,7 @@ export function RuntimeHome() {
         <nav aria-label="Footer navigation">
           <a href="https://cadreagents.com" target="_blank" rel="noreferrer">Cadre</a>
           <a href="mailto:sales@aarvion.ai">sales@aarvion.ai</a>
-          <a href={LOGIN_URL} target="_blank" rel="noreferrer">Product login</a>
+          <a href={LOGIN_URL} target="_blank" rel="noreferrer" data-cta="login_footer">Product login</a>
         </nav>
       </footer>
     </StoryMotionShell>

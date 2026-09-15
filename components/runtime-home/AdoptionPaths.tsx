@@ -82,6 +82,7 @@ export function AdoptionPaths() {
                     href={content.href}
                     target={source === "cadre" ? "_blank" : undefined}
                     rel={source === "cadre" ? "noreferrer" : undefined}
+                    data-cta={`adoption_${source}`}
                   >
                     {content.action} <ArrowRight aria-hidden="true" size={17} />
                   </a>

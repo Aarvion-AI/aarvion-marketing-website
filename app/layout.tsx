@@ -3,6 +3,7 @@ import { Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/JsonLd";
 import { AmplitudeAnalytics } from "@/components/AmplitudeAnalytics";
+import { MixpanelAnalytics } from "@/components/MixpanelAnalytics";
 import {
   SITE_URL,
   SITE_NAME,
@@ -86,6 +87,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
           }}
         />
         <AmplitudeAnalytics />
+        <MixpanelAnalytics />
         <JsonLd
           data={[
             organizationJsonLd(),

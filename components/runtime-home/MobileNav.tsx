@@ -46,8 +46,8 @@ export function MobileNav() {
           <a href="#deployment" onClick={close}>Deployment</a>
           <a href="#product" onClick={close}>Product</a>
           <a href="#cadre" onClick={close}>Cadre</a>
-          <a href={LOGIN_URL} target="_blank" rel="noreferrer" onClick={close}>Log in</a>
-          <a className={styles.mobileDemo} href="#demo" onClick={close}>Book a demo</a>
+          <a href={LOGIN_URL} target="_blank" rel="noreferrer" onClick={close} data-cta="login_mobile">Log in</a>
+          <a className={styles.mobileDemo} href="#demo" onClick={close} data-cta="demo_mobile">Book a demo</a>
         </nav>
       )}
     </div>

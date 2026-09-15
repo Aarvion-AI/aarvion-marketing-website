@@ -69,6 +69,7 @@ export function Nav() {
                             href={p.href}
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-cta={`product_${p.label.toLowerCase().replace(/\s+/g, "_")}`}
                             className="group/item flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-bg-elev"
                           >
                             <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-cyan/10 text-cyan transition-colors group-hover/item:bg-cyan/20">
@@ -130,6 +131,7 @@ export function Nav() {
           href={LOGIN_URL}
           target="_blank"
           rel="noopener noreferrer"
+          data-cta="login_nav"
           className="inline-flex items-center gap-1.5 rounded-md border border-border-strong bg-panel px-3.5 py-1.5 text-sm font-medium text-fg hover:bg-bg-elev hover:border-cyan/40 transition-colors"
         >
           Login
